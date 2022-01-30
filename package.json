@@ -10,7 +10,7 @@
     "watch:hugo": "hugo server -w -D",
     "build": "npm run build:tw && hugo --gc --minify",
     "build:tw": "tailwindcss -o ./assets/css/style.css",
-    "build:preview": "hugo --gc --minify -D -F"
+    "build:preview": "npm run build:tw && hugo --gc --minify -D -F"
   },
   "author": "",
   "license": "ISC",
