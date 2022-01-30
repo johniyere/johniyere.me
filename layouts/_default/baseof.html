@@ -1,0 +1,9 @@
+<!DOCTYPE html>
+<html lang="en">
+  {{ partial "head" . }}
+  <body class="h-screen">
+    <header></header>
+
+    <main role="main" class="h-full">{{ block "main" . }} {{ end }}</main>
+  </body>
+</html>

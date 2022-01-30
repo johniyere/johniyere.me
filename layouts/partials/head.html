@@ -1,0 +1,64 @@
+<head>
+  <!-- META TAGS-->
+  <title>{{ .Title }}</title>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  {{ $img := print .Permalink "/images/johniyere_grad.jpg" }}
+  <meta
+    name="description"
+    content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"
+  />
+  <meta name="image" content="{{ $img | absURL }}" />
+
+  <!-- Open Graph data -->
+  <meta property="og:title" content="{{ .Title }}" />
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="{{ .Permalink | absURL }}" />
+  <meta property="og:image" content="{{ $img | absURL }}" />
+  <meta
+    property="og:description"
+    content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"
+  />
+
+  <!-- TODO: Twitter Card data -->
+  <meta name="twitter:card" value="summary" />
+  <meta name="twitter:site" content="@patif" />
+  <meta name="twitter:title" content="{{ .Title }}" />
+  <meta
+    name="twitter:description"
+    content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"
+  />
+  <meta name="twitter:creator" content="@patif" />
+  <meta name="twitter:image" content="{{ $img | absURL }}" />
+
+  <!-- CSS & JS -->
+  {{ $styles := resources.Get "css/style.css" | postCSS }} {{ if
+  .Site.IsServer}}
+  <link rel="stylesheet" href="{{ $styles.RelPermalink }}" />
+  {{ else }} {{ $styles := $styles | minify | fingerprint |
+  resources.PostProcess }}
+  <link
+    rel="stylesheet"
+    href="{{ $styles.RelPermalink }}"
+    integrity="{{ $styles.Data.Integrity }}"
+  />
+  {{ end }} {{ $script := resources.Get "js/main.js" | minify | fingerprint }}
+  <script
+    defer
+    src="{{ $script.Permalink }}"
+    integrity="{{ $script.Data.Integrity }}"
+  ></script>
+
+  <!-- PWA -->
+  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Abril+Fatface&display=swap"
+    rel="stylesheet"
+  />
+</head>

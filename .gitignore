@@ -1,0 +1,15 @@
+# dependencies
+/node_modules
+
+# Generated Files
+/public
+/resources
+/assets/css/style.css
+
+# IDEs and editors
+.idea
+.vscode
+.hugo_build.lock
+
+# OS Specific
+.DS_Store
