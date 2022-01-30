@@ -5,7 +5,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  {{ $img := print .Permalink "/images/johniyere_grad.jpg" }}
+  {{ $img := print .Permalink "/images/logo.svg" }}
   <meta
     name="description"
     content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"
@@ -24,13 +24,13 @@
 
   <!-- TODO: Twitter Card data -->
   <meta name="twitter:card" value="summary" />
-  <meta name="twitter:site" content="@patif" />
+  <meta name="twitter:site" content="@johniyere7" />
   <meta name="twitter:title" content="{{ .Title }}" />
   <meta
     name="twitter:description"
     content="{{if .IsHome}}{{ $.Site.Params.description }}{{else}}{{.Description}}{{end}}"
   />
-  <meta name="twitter:creator" content="@patif" />
+  <meta name="twitter:creator" content="@johniyere7" />
   <meta name="twitter:image" content="{{ $img | absURL }}" />
 
   <!-- CSS & JS -->
@@ -52,7 +52,12 @@
   ></script>
 
   <!-- PWA -->
-  <link rel="shortcut icon" href="/images/favicon.ico" type="image/x-icon" />
+  {{ $favicon := print .Permalink "/images/favicon.ico" }}
+  <link
+    rel="shortcut icon"
+    href="{{ $favicon | absURL }}"
+    type="image/x-icon"
+  />
 
   <!-- Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />

@@ -1,6 +1,6 @@
 module.exports = {
   purge: {
-    enabled: process.env.HUGO_ENVIRONMENT === 'production',
+    enabled: process.env.HUGO_ENV === 'production',
     content: [
       './layouts/**/*.html',
       './content/**/*.md',
